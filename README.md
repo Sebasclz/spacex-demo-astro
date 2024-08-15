@@ -5,13 +5,13 @@
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/tu-usuario/nombre-del-repositorio.git
+   git clone https://github.com/your-username/spacex-demo-astro.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd nombre-del-repositorio
+   cd spacex-demo-astro
    ```
 
 3. Install dependencies:
