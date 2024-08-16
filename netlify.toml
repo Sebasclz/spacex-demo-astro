@@ -1,9 +1,0 @@
-[build]
-  publish = "dist"
-  functions = "netlify/functions"
-
-[build.environment]
-  NODE_VERSION = "20.16.0"  # Reemplaza con la versión de Node.js que estás utilizando
-
-[functions]
-  node_bundler = "esbuild"  # Puedes usar esbuild u otro bundler soportado
