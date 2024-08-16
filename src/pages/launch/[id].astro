@@ -1,9 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { getLaunchBy } from '../../lib/spacex';
-const { id } = Astro.params;
-
 export const prerender = false
+
+import Layout from '../../layouts/Layout.astro';
+import { getLaunchBy} from '../../lib/spacex';
+const { id } = Astro.params;
 
 let launch;
 
@@ -11,7 +11,8 @@ if(id) {
   launch = await getLaunchBy({ id });
 }
 ---
-<Layout title=`Launch ${id}`>
+
+<Layout title=`Launch #${launch?.flight_number}`>
   <artcile class="flex flex-col gap-y-4 items-center justify-center">
     <img class="w-52 h-auto" src={launch?.links?.patch.small} alt={launch?.name} />
     <h2 class="text-4xl text-white font-bold ">Launch #{launch?.flight_number}</h2>
