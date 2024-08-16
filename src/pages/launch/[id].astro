@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getLaunchBy } from '../../lib/spacex';
+import { getLaunchBy, getLaunches } from '../../lib/spacex';
 const { id } = Astro.params;
 
 let launch;
@@ -8,7 +8,15 @@ let launch;
 if(id) {
   launch = await getLaunchBy({ id });
 }
-export const prerender = false
+
+export async function getStaticPaths() {
+  const launches = await getLaunches()
+
+  return launches.map((launch) => ({
+    params: {id: launch.id}
+  }))
+}
+
 ---
 
 <Layout title=`Launch #${launch?.flight_number}`>
