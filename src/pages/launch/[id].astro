@@ -8,14 +8,7 @@ let launch;
 if(id) {
   launch = await getLaunchBy({ id });
 }
-
-export async function getStaticPaths() {
-  const launches = await getLaunches()
-
-  return launches.map((launch) => ({
-    params: {id: launch.id}
-  }))
-}
+export const prerender = false
 ---
 
 <Layout title=`Launch #${launch?.flight_number}`>
